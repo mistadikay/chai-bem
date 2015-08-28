@@ -16,9 +16,9 @@
     "Denis Koltsov <iam@mistadikay.com> (https://github.com/mistadikay)",
     "Kir Belevich <kir@soulshine.in> (https://github.com/deepsweet)"
   ],
-  "main": "chai-bem.js",
+  "main": "build/index.js",
   "files": [
-    "chai-bem.js",
+    "build/",
     "LICENSE"
   ],
   "dependencies": {
@@ -56,8 +56,8 @@
     "babel-eslint": "4.1.x"
   },
   "scripts": {
-    "prebuild": "rimraf chai-bem.js",
-    "build": "babel lib/ --out-file chai-bem.js",
+    "prebuild": "rimraf build/",
+    "build": "babel lib/ -d build/",
 
     "dev": "npm run build -- -w",
     "tdd": "npm run karma start test/karma.dev.js",
