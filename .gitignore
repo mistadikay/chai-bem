@@ -1,0 +1,5 @@
+node_modules/
+chai-bem.js
+coverage/
+*.log
+.DS_Store

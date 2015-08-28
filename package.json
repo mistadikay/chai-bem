@@ -1,0 +1,90 @@
+{
+  "name": "chai-bem",
+  "version": "0.0.0",
+  "description": "BEM assertions for chai",
+  "keywords": [
+    "chai",
+    "testing",
+    "bem"
+  ],
+  "homepage": "https://github.com/mistadikay/chai-bem#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mistadikay/chai-bem.git"
+  },
+  "contributors": [
+    "Denis Koltsov <iam@mistadikay.com> (https://github.com/mistadikay)",
+    "Kir Belevich <kir@soulshine.in> (https://github.com/deepsweet)"
+  ],
+  "main": "chai-bem.js",
+  "files": [
+    "chai-bem.js",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "chai": "^3.2.0",
+    "bem-naming": "^0.5.1",
+    "babel-runtime": "5.8.x"
+  },
+  "devDependencies": {
+    "husky": "0.9.x",
+    "rimraf": "2.4.x",
+
+    "babel": "5.8.x",
+    "babel-core": "5.8.x",
+
+    "webpack": "1.12.x",
+    "webpack-dev-server": "1.10.x",
+    "babel-loader": "5.3.x",
+    "isparta-loader": "0.2.x",
+
+    "mocha": "2.2.x",
+    "chai-spies": "0.7.x",
+    "coveralls": "2.11.x",
+
+    "karma": "0.13.x",
+    "karma-mocha": "0.2.x",
+    "karma-mocha-reporter": "1.1.x",
+    "karma-chrome-launcher": "0.2.x",
+    "karma-firefox-launcher": "0.1.x",
+    "karma-webpack": "1.7.x",
+    "karma-coverage": "0.5.x",
+    "karma-clear-screen-reporter": "0.0.x",
+
+    "eslint": "1.2.x",
+    "eslint-plugin-babel": "2.1.x",
+    "babel-eslint": "4.1.x"
+  },
+  "scripts": {
+    "prebuild": "rimraf chai-bem.js",
+    "build": "babel lib/ --out-file chai-bem.js",
+
+    "dev": "npm run build -- -w",
+    "tdd": "npm run karma start test/karma.dev.js",
+
+    "lint": "eslint lib/ test/",
+
+    "prekarma": "rimraf coverage/",
+    "karma": "babel-node ./node_modules/.bin/karma",
+
+    "precoveralls": "npm run karma start test/karma.travis.js",
+    "coveralls": "coveralls < coverage/lcov.info",
+
+    "pretravis": "npm run lint",
+    "travis": "npm run coveralls",
+
+    "pretest": "npm run lint",
+    "test": "npm run karma start test/karma.build.js",
+
+    "prepush": "npm test",
+    "prepublish": "npm run build"
+  },
+  "bugs": {
+    "url": "https://github.com/mistadikay/chai-bem/issues"
+  },
+  "engines": {
+    "node": ">=0.12.0",
+    "npm": ">=2.7.0"
+  },
+  "license": "MIT"
+}
