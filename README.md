@@ -13,5 +13,8 @@ WIP
 npm i chai-bem
 ```
 
-## Use
-**TODO**
+## Usage
+
+```js
+expect(someDOMElement.className).to.be.a.block('input');
+```
