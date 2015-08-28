@@ -77,7 +77,7 @@
         number: true
         string: true
     no-implied-eval: 2
-    no-invalid-this: 2
+    no-invalid-this: 0
     no-iterator: 2
     no-labels: 2
     no-lone-blocks: 2
@@ -247,7 +247,9 @@
     space-before-blocks:
       - 2
       - always
-    space-before-function-paren: 0
+    space-before-function-paren:
+      - 2
+      - never
     space-in-parens:
       - 2
       - never
