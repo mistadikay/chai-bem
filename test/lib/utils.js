@@ -1,12 +1,24 @@
 import { expect } from 'chai';
-import { prepareClassName } from '~/lib/utils';
+import {
+    prepareClassName,
+    paramTypeAssert,
+    targetTypeAssert
+} from '~/lib/utils';
 
-describe('index', () => {
-    it('exists', () => {
-        expect(prepareClassName).to.exist;
+describe('utils', () => {
+    describe('exists', () => {
+        it('prepareClassName', () => {
+            expect(prepareClassName).to.exist;
+        });
+        it('paramTypeAssert', () => {
+            expect(paramTypeAssert).to.exist;
+        });
+        it('targetTypeAssert', () => {
+            expect(targetTypeAssert).to.exist;
+        });
     });
 
-    describe('block', () => {
+    describe('prepareClassName', () => {
         it('simple', () => {
             expect(
                 prepareClassName('input input_focused')
@@ -23,6 +35,18 @@ describe('index', () => {
             expect(
                 prepareClassName('input_focused  input  ')
             ).to.include('input');
+        });
+    });
+
+    describe('paramTypeAssert', () => {
+        it.skip('TODO', () => {
+
+        });
+    });
+
+    describe('targetTypeAssert', () => {
+        it.skip('TODO', () => {
+
         });
     });
 });
