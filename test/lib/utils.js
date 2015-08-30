@@ -1,4 +1,4 @@
-import { expect } from 'chai';
+import chai, { expect } from 'chai';
 import {
     prepareClassName,
     paramTypeAssert,
@@ -39,14 +39,38 @@ describe('utils', () => {
     });
 
     describe('paramTypeAssert', () => {
-        it.skip('TODO', () => {
+        it('validates correct input', () => {
+            const assert = function() {
+                chai::paramTypeAssert('input', 'string');
+            };
 
+            expect(assert).to.not.throw(Error);
+        });
+
+        it('validates incorrect input', () => {
+            const assert = function() {
+                chai::paramTypeAssert('input', 'object');
+            };
+
+            expect(assert).to.throw(Error);
         });
     });
 
     describe('targetTypeAssert', () => {
-        it.skip('TODO', () => {
+        it('validates correct input', () => {
+            const assert = function() {
+                chai::targetTypeAssert('input', 'string');
+            };
 
+            expect(assert).to.not.throw(Error);
+        });
+
+        it('validates incorrect input', () => {
+            const assert = function() {
+                chai::paramTypeAssert('input', 'object');
+            };
+
+            expect(assert).to.throw(Error);
         });
     });
 });
