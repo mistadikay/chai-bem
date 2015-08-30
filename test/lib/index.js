@@ -41,14 +41,14 @@ describe('index', function() {
     describe('elem', function() {
         describe('passes', function() {
             it('simple', function() {
-                expect('input input__control').to.be.an.elem({
+                expect('input__control').to.be.an.elem({
                     block: 'input',
                     elem: 'control'
                 });
             });
 
             it('within a mix', function() {
-                expect('input input__control sidebar__input').to.be.an.elem({
+                expect('input sidebar__input').to.be.an.elem({
                     block: 'sidebar',
                     elem: 'input'
                 });
@@ -58,7 +58,7 @@ describe('index', function() {
         describe('throws error', function() {
             it('simple', function() {
                 const assert = function() {
-                    expect('input input__icon').to.be.an.elem({
+                    expect('input__icon').to.be.an.elem({
                         block: 'input',
                         elem: 'control'
                     });
