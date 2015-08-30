@@ -5,41 +5,41 @@ import {
     targetTypeAssert
 } from '~/lib/utils';
 
-describe('utils', () => {
-    describe('exists', () => {
-        it('prepareClassName', () => {
+describe('utils', function() {
+    describe('exists', function() {
+        it('prepareClassName', function() {
             expect(prepareClassName).to.exist;
         });
-        it('paramTypeAssert', () => {
+        it('paramTypeAssert', function() {
             expect(paramTypeAssert).to.exist;
         });
-        it('targetTypeAssert', () => {
+        it('targetTypeAssert', function() {
             expect(targetTypeAssert).to.exist;
         });
     });
 
-    describe('prepareClassName', () => {
-        it('simple', () => {
+    describe('prepareClassName', function() {
+        it('simple', function() {
             expect(
                 prepareClassName('input input_focused')
             ).to.include('input');
         });
 
-        it('with lots of spaces', () => {
+        it('with lots of spaces', function() {
             expect(
                 prepareClassName('  input  input_focused    ')
             ).to.include('input');
         });
 
-        it('not first', () => {
+        it('not first', function() {
             expect(
                 prepareClassName('input_focused  input  ')
             ).to.include('input');
         });
     });
 
-    describe('paramTypeAssert', () => {
-        it('validates correct input', () => {
+    describe('paramTypeAssert', function() {
+        it('validates correct input', function() {
             const assert = function() {
                 chai::paramTypeAssert('input', 'string');
             };
@@ -47,7 +47,7 @@ describe('utils', () => {
             expect(assert).to.not.throw(Error);
         });
 
-        it('validates incorrect input', () => {
+        it('validates incorrect input', function() {
             const assert = function() {
                 chai::paramTypeAssert('input', 'object');
             };
@@ -56,8 +56,8 @@ describe('utils', () => {
         });
     });
 
-    describe('targetTypeAssert', () => {
-        it('validates correct input', () => {
+    describe('targetTypeAssert', function() {
+        it('validates correct input', function() {
             const assert = function() {
                 chai::targetTypeAssert('input', 'string');
             };
@@ -65,7 +65,7 @@ describe('utils', () => {
             expect(assert).to.not.throw(Error);
         });
 
-        it('validates incorrect input', () => {
+        it('validates incorrect input', function() {
             const assert = function() {
                 chai::paramTypeAssert('input', 'object');
             };
