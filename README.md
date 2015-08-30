@@ -15,6 +15,23 @@ npm i chai-bem
 
 ## Usage
 
+Plug-in the plugin first:
 ```js
-expect(someDOMElement.className).to.be.a.block('input');
+import chai from 'chai';
+import chaiBEM from 'chai-bem';
+
+chai.use(chaiBEM);
+```
+
+Block:
+```js
+expect('input input_focused').to.be.a.block('input');
+```
+
+Element:
+```js
+expect('input__control').to.be.an.element({
+    block: 'input',
+    elem: 'control'
+});
 ```
