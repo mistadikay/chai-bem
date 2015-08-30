@@ -1,4 +1,4 @@
-import chai, { expect } from 'chai';
+import { expect } from 'chai';
 import {
     prepareClassName
 } from '~/lib/utils';
