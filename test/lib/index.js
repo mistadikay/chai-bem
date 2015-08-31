@@ -279,4 +279,246 @@ describe('index', function() {
             });
         });
     });
+
+    describe.skip('mods', function() {
+        describe('property', function() {
+            describe('passes', function() {
+                describe('positives', function() {
+                    it('simple', function() {
+                        expect('sidebar sidebar_color_dark').to.have.mod;
+                    });
+
+                    it('boolean', function() {
+                        expect('menu menu_visible').to.have.mod;
+                    });
+
+                    it('boolean explicit', function() {
+                        expect('menu menu_visible_true').to.have.mod;
+                    });
+
+                    it('elem', function() {
+                        expect('menu__item menu__item_size_big').to.have.mod;
+                    });
+                });
+
+                describe('negatives', function() {
+                    it('simple', function() {
+                        expect('sidebar').to.not.have.mod;
+                    });
+
+                    it('within a mix', function() {
+                        expect('menu sidebar__menu').to.not.have.mod;
+                    });
+
+                    it('elem', function() {
+                        expect('menu__item').to.not.have.mod;
+                    });
+                });
+            });
+
+            describe('throws error', function() {
+                describe('positives', function() {
+                    it('simple', function() {
+                        const assert = function() {
+                            expect('sidebar').to.have.mod;
+                        };
+
+                        expect(assert).to.throw(Error);
+                    });
+
+                    it('within a mix', function() {
+                        const assert = function() {
+                            expect('menu sidebar__menu').to.have.mod;
+                        };
+
+                        expect(assert).to.throw(Error);
+                    });
+
+                    it('elem', function() {
+                        const assert = function() {
+                            expect('menu__item').to.have.mod;
+                        };
+
+                        expect(assert).to.throw(Error);
+                    });
+                });
+
+                describe('negatives', function() {
+                    it('simple', function() {
+                        const assert = function() {
+                            expect('sidebar sidebar_color_dark').to.not.have.mod;
+                        };
+
+                        expect(assert).to.throw(Error);
+                    });
+
+                    it('boolean', function() {
+                        const assert = function() {
+                            expect('menu menu_visible').to.not.have.mod;
+                        };
+
+                        expect(assert).to.throw(Error);
+                    });
+
+                    it('boolean explicit', function() {
+                        const assert = function() {
+                            expect('menu menu_visible_true').to.not.have.mod;
+                        };
+
+                        expect(assert).to.throw(Error);
+                    });
+
+                    it('elem', function() {
+                        const assert = function() {
+                            expect('menu__item menu__item_size_big').to.not.have.mod;
+                        };
+
+                        expect(assert).to.throw(Error);
+                    });
+                });
+            });
+        });
+
+        describe('method', function() {
+            describe('passes', function() {
+                describe('positives', function() {
+                    it('simple', function() {
+                        expect('sidebar sidebar_color_dark').to.have.mod({
+                            color: 'dark'
+                        });
+                    });
+
+                    it('boolean', function() {
+                        expect('menu menu_visible').to.have.mod({
+                            visible: true
+                        });
+                    });
+
+                    it('boolean explicit', function() {
+                        expect('menu menu_visible_true').to.have.mod({
+                            visible: true
+                        });
+                    });
+
+                    it('elem', function() {
+                        expect('menu__item menu__item_size_big').to.have.mod({
+                            size: 'big'
+                        });
+                    });
+                });
+
+                describe('negatives', function() {
+                    it('simple', function() {
+                        expect('sidebar sidebar_color_white').to.not.have.mod({
+                            color: 'dark'
+                        });
+                    });
+
+                    it('boolean', function() {
+                        expect('menu menu_hidden').to.not.have.mod({
+                            visible: true
+                        });
+                    });
+
+                    it('boolean explicit', function() {
+                        expect('menu menu_visible_false').to.not.have.mod({
+                            visible: true
+                        });
+                    });
+
+                    it('elem', function() {
+                        expect('menu__item menu__item_size_small').to.not.have.mod({
+                            size: 'big'
+                        });
+                    });
+                });
+            });
+
+            describe('throws error', function() {
+                describe('positives', function() {
+                    it('simple', function() {
+                        const assert = function() {
+                            expect('sidebar sidebar_color_white').to.have.mod({
+                                color: 'dark'
+                            });
+                        };
+
+                        expect(assert).to.throw(Error);
+                    });
+
+                    it('boolean', function() {
+                        const assert = function() {
+                            expect('menu menu_hidden').to.have.mod({
+                                visible: true
+                            });
+                        };
+
+                        expect(assert).to.throw(Error);
+                    });
+
+                    it('boolean explicit', function() {
+                        const assert = function() {
+                            expect('menu menu_visible_false').to.have.mod({
+                                visible: true
+                            });
+                        };
+
+                        expect(assert).to.throw(Error);
+                    });
+
+                    it('elem', function() {
+                        const assert = function() {
+                            expect('menu__item menu__item_size_small').to.have.mod({
+                                size: 'big'
+                            });
+                        };
+
+                        expect(assert).to.throw(Error);
+                    });
+                });
+
+                describe('negatives', function() {
+                    it('simple', function() {
+                        const assert = function() {
+                            expect('sidebar sidebar_color_dark').to.not.have.mod({
+                                color: 'dark'
+                            });
+                        };
+
+                        expect(assert).to.throw(Error);
+                    });
+
+                    it('boolean', function() {
+                        const assert = function() {
+                            expect('menu menu_visible').to.not.have.mod({
+                                visible: true
+                            });
+                        };
+
+                        expect(assert).to.throw(Error);
+                    });
+
+                    it('boolean explicit', function() {
+                        const assert = function() {
+                            expect('menu menu_visible_true').to.not.have.mod({
+                                visible: true
+                            });
+                        };
+
+                        expect(assert).to.throw(Error);
+                    });
+
+                    it('elem', function() {
+                        const assert = function() {
+                            expect('menu__item menu__item_size_big').to.not.have.mod({
+                                size: 'big'
+                            });
+                        };
+
+                        expect(assert).to.throw(Error);
+                    });
+                });
+            });
+        });
+    });
 });
