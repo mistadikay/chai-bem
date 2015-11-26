@@ -20,18 +20,37 @@ Plug-in the plugin first:
 import chai from 'chai';
 import chaiBEM from 'chai-bem';
 
-chai.use(chaiBEM);
+chai.use(chaiBEM());
 ```
 
-Block:
+You can set optional BEM naming rules (default values and available options are the same as in [bem-naming](https://github.com/bem/bem-naming#custom-naming-convention)), for example:
+```js
+chai.use(chaiBEM({
+    elem: '-',
+    mod: '--',
+    wordPattern: '[a-zA-Z0-9]+'
+}));
+```
+
+### Block
+
 ```js
 expect('input input_focused').to.be.a.block('input');
 ```
 
-Element:
+### Element
+
 ```js
-expect('input__control').to.be.an.element({
+expect('input__control').to.be.an.elem({
     block: 'input',
     elem: 'control'
 });
 ```
+
+### Modificator
+
+_TODO_
+
+### Nested
+
+_TODO_

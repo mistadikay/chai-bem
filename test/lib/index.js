@@ -1,7 +1,7 @@
 import chai, { expect } from 'chai';
 import chaiBEM from '~/lib';
 
-chai.use(chaiBEM);
+chai.use(chaiBEM());
 
 describe('index', function() {
     it('exists', function() {
