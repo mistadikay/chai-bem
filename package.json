@@ -23,8 +23,7 @@
   ],
   "dependencies": {
     "chai": "^3.2.0",
-    "bem-naming": "^0.5.1",
-    "babel-runtime": "5.8.x"
+    "bem-naming": "^0.5.1"
   },
   "devDependencies": {
     "husky": "0.10.x",
