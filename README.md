@@ -35,7 +35,11 @@ chai.use(chaiBEM({
 ### Block
 
 ```js
+// you can check plain classNames
 expect('input input_focused').to.be.a.block('input');
+
+// or DOM elements themselves
+expect(document.getElementById('someInput')).to.be.a.block('input');
 ```
 
 ### Element
