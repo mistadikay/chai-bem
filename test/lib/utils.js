@@ -1,6 +1,8 @@
 import { expect } from 'chai';
 import {
-    prepareClassName
+    prepareClassName,
+    isClassName,
+    isDOMElement
 } from '~/lib/utils';
 
 describe('utils', function() {
@@ -27,6 +29,31 @@ describe('utils', function() {
             expect(
                 prepareClassName('input_focused  input  ')
             ).to.include('input');
+        });
+    });
+
+    describe('isClassName', function() {
+        it('string', function() {
+            expect(isClassName('input')).to.be.true;
+        });
+
+        it('number', function() {
+            expect(isClassName(1)).to.be.false;
+        });
+    });
+
+    describe('isDOMElement', function() {
+        it('string', function() {
+            expect(isDOMElement('input')).to.be.false;
+        });
+
+        it('plain object', function() {
+            expect(isDOMElement({})).to.be.false;
+        });
+
+        it('nodeType', function() {
+            expect(isDOMElement(document.createElement('div'))).to.be.true;
+            expect(isDOMElement({ nodeType: 0 })).to.be.false;
         });
     });
 });

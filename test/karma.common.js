@@ -3,10 +3,10 @@ import path from 'path';
 export default {
     colors: true,
     files: [
-        'lib/*.js'
+        './index.js'
     ],
     preprocessors: {
-        'lib/*.js': 'webpack'
+        './index.js': 'webpack'
     },
     frameworks: [ 'mocha' ],
     webpack: {
