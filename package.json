@@ -27,18 +27,18 @@
     "babel-runtime": "5.8.x"
   },
   "devDependencies": {
-    "husky": "0.9.x",
+    "husky": "0.10.x",
     "rimraf": "2.4.x",
 
     "babel": "5.8.x",
     "babel-core": "5.8.x",
 
     "webpack": "1.12.x",
-    "webpack-dev-server": "1.10.x",
+    "webpack-dev-server": "1.14.x",
     "babel-loader": "5.3.x",
-    "isparta-loader": "0.2.x",
+    "isparta-loader": "1.0.x",
 
-    "mocha": "2.2.x",
+    "mocha": "2.3.x",
     "chai-spies": "0.7.x",
     "coveralls": "2.11.x",
 
@@ -49,10 +49,10 @@
     "karma-firefox-launcher": "0.1.x",
     "karma-webpack": "1.7.x",
     "karma-coverage": "0.5.x",
-    "karma-clear-screen-reporter": "0.0.x",
+    "karma-clear-screen-reporter": "1.0.x",
 
-    "eslint": "1.3.x",
-    "eslint-plugin-babel": "2.1.x",
+    "eslint": "1.10.x",
+    "eslint-plugin-babel": "3.0.x",
     "babel-eslint": "4.1.x"
   },
   "scripts": {
