@@ -32,19 +32,23 @@ chai.use(chaiBEM({
 }));
 ```
 
+Both classNames and DOM elements are supported:
+
+```js
+expect('input input_focused').to.be.a.block('input');
+expect(document.getElementById('someInput')).to.be.a.block('input');
+```
+
 ### Block
 
-* __block__ method
-* __validBlock__ property
+* `__block__` method
+* `__validBlock__` property
 
 Examples:
 
 ```js
 // you can check plain classNames
 expect('input input_focused').to.be.a.block('input');
-
-// or DOM elements themselves
-expect(document.getElementById('someInput')).to.be.a.block('input');
 
 // you can just check if it's a valid block at all
 expect('input input_focused').to.be.a.validBlock;
@@ -55,8 +59,8 @@ expect('input__control').to.be.a.validBlock;
 
 ### Element
 
-* __elem__ method
-* __validElem__ property
+* `__elem__` method
+* `__validElem__` property
 
 ```js
 expect('input__control').to.be.an.elem({
@@ -71,10 +75,52 @@ expect('input__control').to.be.a.validElem;
 expect('input').to.be.a.validElem;
 ```
 
-### Modificator
+### Modificators
 
-_TODO_
+* `__mods__` method
+
+```js
+// you can check one modificator (both block and element mods are supported)
+expect('sidebar sidebar_color_dark').to.have.mods({
+    color: 'dark'
+});
+expect('menu__item menu__item_size_big').to.have.mods({
+    size: 'big'
+});
+
+// or you can check a bunch
+expect('menu__item menu__item_size_big menu__item_position_left').to.have.mods({
+    size: 'big',
+    position: left
+});
+
+// this will throw an error because both mods were expected
+expect('menu__item menu__item_size_big menu__item_position_left').to.have.mods({
+    size: 'small',
+    position: left
+});
+
+// you can check boolean modificators as well (both explicit and implicit)
+expect('menu menu_visible_true').to.have.mods({
+    visible: true
+});
+expect('menu menu_visible').to.have.mods({
+    visible: true
+});
+```
 
 ### Nested
 
 _TODO_
+
+### `.not`
+
+Examples:
+```js
+expect('button_big').to.not.be.a.validBlock;
+
+expect('menu__item').to.not.have.mods({
+    size: 'small',
+    position: left
+});
+```
