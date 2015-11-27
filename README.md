@@ -34,21 +34,41 @@ chai.use(chaiBEM({
 
 ### Block
 
+* __block__ method
+* __validBlock__ property
+
+Examples:
+
 ```js
 // you can check plain classNames
 expect('input input_focused').to.be.a.block('input');
 
 // or DOM elements themselves
 expect(document.getElementById('someInput')).to.be.a.block('input');
+
+// you can just check if it's a valid block at all
+expect('input input_focused').to.be.a.validBlock;
+
+// this will throw an error
+expect('input_focused').to.be.a.validBlock;
 ```
 
 ### Element
+
+* __elem__ method
+* __validElem__ property
 
 ```js
 expect('input__control').to.be.an.elem({
     block: 'input',
     elem: 'control'
 });
+
+// you can just check if it's a valid element at all
+expect('input__control').to.be.a.validElem;
+
+// this will throw an error
+expect('input').to.be.a.validElem;
 ```
 
 ### Modificator
