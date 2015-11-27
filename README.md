@@ -50,7 +50,7 @@ expect(document.getElementById('someInput')).to.be.a.block('input');
 expect('input input_focused').to.be.a.validBlock;
 
 // this will throw an error
-expect('input_focused').to.be.a.validBlock;
+expect('input__control').to.be.a.validBlock;
 ```
 
 ### Element
