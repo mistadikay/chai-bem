@@ -7,32 +7,32 @@ describe('elem', function() {
             describe('passes', function() {
                 describe('positives', function() {
                     it('simple', function() {
-                        expect(DOMElement('input__control')).to.be.an.elem;
+                        expect(DOMElement('input__control')).to.be.a.validElem;
                     });
 
                     it('within a mix', function() {
-                        expect(DOMElement('input sidebar__input')).to.be.an.elem;
+                        expect(DOMElement('input sidebar__input')).to.be.a.validElem;
                     });
                 });
 
                 describe('negatives', function() {
                     it('simple', function() {
-                        expect(DOMElement('input')).to.not.be.an.elem;
+                        expect(DOMElement('input')).to.not.be.a.validElem;
                     });
                 });
             });
 
-            describe.skip('throws error', function() {
+            describe('throws error', function() {
                 describe('positives', function() {
                     it('simple', function() {
                         expect(function() {
-                            expect(DOMElement('input')).to.be.an.elem;
+                            expect(DOMElement('input')).to.be.a.validElem;
                         }).to.throw(Error);
                     });
 
                     it('nonsense', function() {
                         expect(function() {
-                            expect(DOMElement('sidebar_input')).to.be.an.elem;
+                            expect(DOMElement('sidebar_input')).to.be.a.validElem;
                         }).to.throw(Error);
                     });
                 });
@@ -40,13 +40,13 @@ describe('elem', function() {
                 describe('negatives', function() {
                     it('simple', function() {
                         expect(function() {
-                            expect(DOMElement('input__icon')).to.not.be.an.elem;
+                            expect(DOMElement('input__icon')).to.not.be.a.validElem;
                         }).to.throw(Error);
                     });
 
                     it('with mod', function() {
                         expect(function() {
-                            expect(DOMElement('sidebar__input')).to.not.be.an.elem;
+                            expect(DOMElement('sidebar__input')).to.not.be.a.validElem;
                         }).to.throw(Error);
                     });
                 });
