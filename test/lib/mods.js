@@ -1,142 +1,72 @@
 import { expect } from 'chai';
 import { runTests } from '../helpers';
 
-describe.skip('mods', function() {
+describe('mods', function() {
     runTests(function(DOMElement) {
-        describe('property', function() {
-            describe('passes', function() {
-                describe('positives', function() {
-                    it('simple', function() {
-                        expect(DOMElement('sidebar sidebar_color_dark')).to.have.mod;
-                    });
-
-                    it('boolean', function() {
-                        expect(DOMElement('menu menu_visible')).to.have.mod;
-                    });
-
-                    it('boolean explicit', function() {
-                        expect(DOMElement('menu menu_visible_true')).to.have.mod;
-                    });
-
-                    it('elem', function() {
-                        expect(DOMElement('menu__item menu__item_size_big')).to.have.mod;
-                    });
-                });
-
-                describe('negatives', function() {
-                    it('simple', function() {
-                        expect(DOMElement('sidebar')).to.not.have.mod;
-                    });
-
-                    it('within a mix', function() {
-                        expect(DOMElement('menu sidebar__menu')).to.not.have.mod;
-                    });
-
-                    it('elem', function() {
-                        expect(DOMElement('menu__item')).to.not.have.mod;
-                    });
-                });
-            });
-
-            describe('throws error', function() {
-                describe('positives', function() {
-                    it('simple', function() {
-                        expect(function() {
-                            expect(DOMElement('sidebar')).to.have.mod;
-                        }).to.throw(Error);
-                    });
-
-                    it('within a mix', function() {
-                        expect(function() {
-                            expect(DOMElement('menu sidebar__menu')).to.have.mod;
-                        }).to.throw(Error);
-                    });
-
-                    it('elem', function() {
-                        expect(function() {
-                            expect(DOMElement('menu__item')).to.have.mod;
-                        }).to.throw(Error);
-                    });
-                });
-
-                describe('negatives', function() {
-                    it('simple', function() {
-                        expect(function() {
-                            expect(DOMElement('sidebar sidebar_color_dark')).to.not.have.mod;
-                        }).to.throw(Error);
-                    });
-
-                    it('boolean', function() {
-                        expect(function() {
-                            expect(DOMElement('menu menu_visible')).to.not.have.mod;
-                        }).to.throw(Error);
-                    });
-
-                    it('boolean explicit', function() {
-                        expect(function() {
-                            expect(DOMElement('menu menu_visible_true')).to.not.have.mod;
-                        }).to.throw(Error);
-                    });
-
-                    it('elem', function() {
-                        expect(function() {
-                            expect(DOMElement('menu__item menu__item_size_big')).to.not.have.mod;
-                        }).to.throw(Error);
-                    });
-                });
-            });
-        });
-
         describe('method', function() {
             describe('passes', function() {
                 describe('positives', function() {
                     it('simple', function() {
-                        expect(DOMElement('sidebar sidebar_color_dark')).to.have.mod({
+                        expect(DOMElement('sidebar sidebar_color_dark')).to.have.mods({
                             color: 'dark'
                         });
                     });
 
                     it('boolean', function() {
-                        expect(DOMElement('menu menu_visible')).to.have.mod({
+                        expect(DOMElement('menu menu_visible')).to.have.mods({
                             visible: true
                         });
                     });
 
                     it('boolean explicit', function() {
-                        expect(DOMElement('menu menu_visible_true')).to.have.mod({
+                        expect(DOMElement('menu menu_visible_true')).to.have.mods({
                             visible: true
                         });
                     });
 
                     it('elem', function() {
-                        expect(DOMElement('menu__item menu__item_size_big')).to.have.mod({
+                        expect(DOMElement('menu__item menu__item_size_big')).to.have.mods({
                             size: 'big'
+                        });
+                    });
+
+                    it('multi mods', function() {
+                        expect(DOMElement('menu__item menu__item_size_big menu__item_visible')).to.have.mods({
+                            size: 'big',
+                            visible: true
                         });
                     });
                 });
 
                 describe('negatives', function() {
                     it('simple', function() {
-                        expect(DOMElement('sidebar sidebar_color_white')).to.not.have.mod({
+                        expect(DOMElement('sidebar sidebar_color_white')).to.not.have.mods({
                             color: 'dark'
                         });
                     });
 
                     it('boolean', function() {
-                        expect(DOMElement('menu menu_hidden')).to.not.have.mod({
+                        expect(DOMElement('menu menu_hidden')).to.not.have.mods({
                             visible: true
                         });
                     });
 
                     it('boolean explicit', function() {
-                        expect(DOMElement('menu menu_visible_false')).to.not.have.mod({
+                        expect(DOMElement('menu menu_visible_false')).to.not.have.mods({
                             visible: true
                         });
                     });
 
                     it('elem', function() {
-                        expect(DOMElement('menu__item menu__item_size_small')).to.not.have.mod({
+                        expect(DOMElement('menu__item menu__item_size_small')).to.not.have.mods({
                             size: 'big'
+                        });
+                    });
+
+                    it('multi mods', function() {
+                        expect(DOMElement('menu__item menu__item_visible')).to.not.have.mods({
+                            size: 'big',
+                            visible: true
                         });
                     });
                 });
@@ -146,7 +76,7 @@ describe.skip('mods', function() {
                 describe('positives', function() {
                     it('simple', function() {
                         expect(function() {
-                            expect(DOMElement('sidebar sidebar_color_white')).to.have.mod({
+                            expect(DOMElement('sidebar sidebar_color_white')).to.have.mods({
                                 color: 'dark'
                             });
                         }).to.throw(Error);
@@ -154,7 +84,7 @@ describe.skip('mods', function() {
 
                     it('boolean', function() {
                         expect(function() {
-                            expect(DOMElement('menu menu_hidden')).to.have.mod({
+                            expect(DOMElement('menu menu_hidden')).to.have.mods({
                                 visible: true
                             });
                         }).to.throw(Error);
@@ -162,7 +92,7 @@ describe.skip('mods', function() {
 
                     it('boolean explicit', function() {
                         expect(function() {
-                            expect(DOMElement('menu menu_visible_false')).to.have.mod({
+                            expect(DOMElement('menu menu_visible_false')).to.have.mods({
                                 visible: true
                             });
                         }).to.throw(Error);
@@ -170,8 +100,17 @@ describe.skip('mods', function() {
 
                     it('elem', function() {
                         expect(function() {
-                            expect(DOMElement('menu__item menu__item_size_small')).to.have.mod({
+                            expect(DOMElement('menu__item menu__item_size_small')).to.have.mods({
                                 size: 'big'
+                            });
+                        }).to.throw(Error);
+                    });
+
+                    it('multi mods', function() {
+                        expect(function() {
+                            expect(DOMElement('menu__item menu__item_size_small')).to.have.mods({
+                                size: 'small',
+                                visible: true
                             });
                         }).to.throw(Error);
                     });
@@ -180,7 +119,7 @@ describe.skip('mods', function() {
                 describe('negatives', function() {
                     it('simple', function() {
                         expect(function() {
-                            expect(DOMElement('sidebar sidebar_color_dark')).to.not.have.mod({
+                            expect(DOMElement('sidebar sidebar_color_dark')).to.not.have.mods({
                                 color: 'dark'
                             });
                         }).to.throw(Error);
@@ -188,7 +127,7 @@ describe.skip('mods', function() {
 
                     it('boolean', function() {
                         expect(function() {
-                            expect(DOMElement('menu menu_visible')).to.not.have.mod({
+                            expect(DOMElement('menu menu_visible')).to.not.have.mods({
                                 visible: true
                             });
                         }).to.throw(Error);
@@ -196,7 +135,7 @@ describe.skip('mods', function() {
 
                     it('boolean explicit', function() {
                         expect(function() {
-                            expect(DOMElement('menu menu_visible_true')).to.not.have.mod({
+                            expect(DOMElement('menu menu_visible_true')).to.not.have.mods({
                                 visible: true
                             });
                         }).to.throw(Error);
@@ -204,8 +143,17 @@ describe.skip('mods', function() {
 
                     it('elem', function() {
                         expect(function() {
-                            expect(DOMElement('menu__item menu__item_size_big')).to.not.have.mod({
+                            expect(DOMElement('menu__item menu__item_size_big')).to.not.have.mods({
                                 size: 'big'
+                            });
+                        }).to.throw(Error);
+                    });
+
+                    it('multi mods', function() {
+                        expect(function() {
+                            expect(DOMElement('menu__item menu__item_size_small menu__item_visible')).to.not.have.mods({
+                                size: 'small',
+                                visible: true
                             });
                         }).to.throw(Error);
                     });
