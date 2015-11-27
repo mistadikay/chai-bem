@@ -6,8 +6,6 @@ Chai assertions for BEM class names
 [![coverage](http://img.shields.io/coveralls/mistadikay/chai-bem/master.svg?style=flat-square)](https://coveralls.io/r/mistadikay/chai-bem)
 [![deps](http://img.shields.io/david/mistadikay/chai-bem.svg?style=flat-square)](https://david-dm.org/mistadikay/chai-bem)
 
-WIP
-
 ## Install
 ```
 npm i chai-bem
@@ -47,10 +45,10 @@ expect(document.getElementById('someInput')).to.be.a.block('input');
 Examples:
 
 ```js
-// you can check plain classNames
+// check if it's an `input` block
 expect('input input_focused').to.be.a.block('input');
 
-// you can just check if it's a valid block at all
+// or you can just check if it's a valid block at all
 expect('input input_focused').to.be.a.validBlock;
 
 // this will throw an error
@@ -68,7 +66,7 @@ expect('input__control').to.be.an.elem({
     elem: 'control'
 });
 
-// you can just check if it's a valid element at all
+// is it a valid element at all
 expect('input__control').to.be.a.validElem;
 
 // this will throw an error
@@ -91,13 +89,13 @@ expect('menu__item menu__item_size_big').to.have.mods({
 // or you can check a bunch
 expect('menu__item menu__item_size_big menu__item_position_left').to.have.mods({
     size: 'big',
-    position: left
+    position: 'left'
 });
 
 // this will throw an error because both mods were expected
 expect('menu__item menu__item_size_big menu__item_position_left').to.have.mods({
     size: 'small',
-    position: left
+    position: 'left'
 });
 
 // you can check boolean modificators as well (both explicit and implicit)
@@ -121,6 +119,6 @@ expect('button_big').to.not.be.a.validBlock;
 
 expect('menu__item').to.not.have.mods({
     size: 'small',
-    position: left
+    position: 'left'
 });
 ```
