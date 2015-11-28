@@ -39,8 +39,8 @@ expect(document.getElementById('someInput')).to.be.a.block('input');
 
 ### Block
 
-* `__block__` method
-* `__validBlock__` property
+* `block` method
+* `validBlock` property
 
 Examples:
 
@@ -57,8 +57,8 @@ expect('input__control').to.be.a.validBlock;
 
 ### Element
 
-* `__elem__` method
-* `__validElem__` property
+* `elem` method
+* `validElem` property
 
 ```js
 expect('input__control').to.be.an.elem({
@@ -75,7 +75,7 @@ expect('input').to.be.a.validElem;
 
 ### Modificators
 
-* `__mods__` method
+* `mods` method
 
 ```js
 // you can check one modificator (both block and element mods are supported)
