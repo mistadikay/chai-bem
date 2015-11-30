@@ -107,13 +107,40 @@ expect('menu menu_visible').to.have.mods({
 });
 ```
 
-### Nested
+### BEMJSON
 
-_TODO_
+* `bemjson` or `bem` method
+
+```js
+// block with a couple of mods
+expect('input input_focused input_color_black').to.be.bem({
+    block: 'input',
+    mods: {
+        focused: true,
+        color: 'black'
+    }
+});
+
+// element with a couple of mixes
+expect('input__control random some__stuff').to.be.bem({
+    block: 'input',
+    elem: 'control',
+    mix: [
+        {
+            block: 'random'
+        },
+        {
+            block: 'some',
+            elem: 'stuff'
+        }
+    ]
+});
+```
 
 ### `.not`
 
-Examples:
+`.not` is supported for all assertions excluding `bemjson`. Examples:
+
 ```js
 expect('button_big').to.not.be.a.validBlock;
 

@@ -23,7 +23,8 @@
   ],
   "dependencies": {
     "chai": "^3.2.0",
-    "bem-naming": "^0.5.1"
+    "bem-naming": "^0.5.1",
+    "lodash.isplainobject": "3.2.x"
   },
   "devDependencies": {
     "husky": "0.10.x",
