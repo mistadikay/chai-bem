@@ -12,6 +12,6 @@ export default function(config) {
                 flags: [ '--no-sandbox' ]
             }
         },
-        browsers: [ 'ChromeTravis', 'Firefox' ]
+        browsers: [ 'ChromeTravis' ]
     });
 }
