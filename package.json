@@ -1,6 +1,6 @@
 {
   "name": "chai-bem",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "BEM assertions for chai",
   "keywords": [
     "chai",
