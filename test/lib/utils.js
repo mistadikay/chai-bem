@@ -10,6 +10,14 @@ describe('utils', function() {
         it('prepareClassName', function() {
             expect(prepareClassName).to.exist;
         });
+
+        it('isClassName', function() {
+            expect(isClassName).to.exist;
+        });
+
+        it('isDOMElement', function() {
+            expect(isDOMElement).to.exist;
+        });
     });
 
     describe('prepareClassName', function() {
