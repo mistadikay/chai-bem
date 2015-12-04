@@ -38,6 +38,12 @@ describe('utils', function() {
                 prepareClassName('input_focused  input  ')
             ).to.include('input');
         });
+
+        it('empty', function() {
+            expect(
+                prepareClassName('')
+            ).to.include('');
+        });
     });
 
     describe('isClassName', function() {
