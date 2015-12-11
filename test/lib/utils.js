@@ -1,7 +1,8 @@
 import { expect } from 'chai';
 import {
     prepareClassName,
-    isClassName
+    isClassName,
+    getEntitiesFromBEMJSON
 } from '~/lib/utils';
 
 describe('utils', function() {
@@ -12,6 +13,10 @@ describe('utils', function() {
 
         it('isClassName', function() {
             expect(isClassName).to.exist;
+        });
+
+        it('getEntitiesFromBEMJSON', function() {
+            expect(getEntitiesFromBEMJSON).to.exist;
         });
     });
 
