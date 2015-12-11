@@ -1,8 +1,7 @@
 import { expect } from 'chai';
 import {
     prepareClassName,
-    isClassName,
-    isDOMElement
+    isClassName
 } from '~/lib/utils';
 
 describe('utils', function() {
@@ -13,10 +12,6 @@ describe('utils', function() {
 
         it('isClassName', function() {
             expect(isClassName).to.exist;
-        });
-
-        it('isDOMElement', function() {
-            expect(isDOMElement).to.exist;
         });
     });
 
@@ -53,21 +48,6 @@ describe('utils', function() {
 
         it('number', function() {
             expect(isClassName(1)).to.be.false;
-        });
-    });
-
-    describe('isDOMElement', function() {
-        it('string', function() {
-            expect(isDOMElement('input')).to.be.false;
-        });
-
-        it('plain object', function() {
-            expect(isDOMElement({})).to.be.false;
-        });
-
-        it('nodeType', function() {
-            expect(isDOMElement(document.createElement('div'))).to.be.true;
-            expect(isDOMElement({ nodeType: 0 })).to.be.false;
         });
     });
 });
