@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "husky": "0.10.x",
-    "rimraf": "2.4.x",
+    "rimraf": "2.5.x",
 
     "babel-core": "6.3.x",
     "babel-cli": "6.3.x",
