@@ -22,6 +22,15 @@ import chaiBEM from 'chai-bem';
 chai.use(chaiBEM());
 ```
 
+Both classNames and DOM elements are supported:
+
+```js
+expect('input input_focused').to.be.a.block('input');
+expect(document.getElementById('someInput')).to.be.a.block('input');
+```
+
+### BEM naming rules
+
 You can set optional BEM naming rules (default values and available options are the same as in [bem-naming](https://github.com/bem/bem-naming#custom-naming-convention)), for example:
 ```js
 chai.use(chaiBEM({
@@ -31,11 +40,25 @@ chai.use(chaiBEM({
 }));
 ```
 
-Both classNames and DOM elements are supported:
+### entityHook option
+
+If you want `chai-bem` hooks to work with entity types other than DOM nodes or classNames,
+you can add `entityHook` option. Example:
 
 ```js
-expect('input input_focused').to.be.a.block('input');
-expect(document.getElementById('someInput')).to.be.a.block('input');
+import { ShallowWrapper, ReactWrapper } from 'enzyme';
+
+chai.use(chaiBEM({
+    entityHook(entity) {
+        // we can now work with enzyme wrappers!
+        if (entity instanceof ShallowWrapper || entity instanceof ReactWrapper) {
+            return entity.prop('className');
+        }
+
+        // by default return the same entity
+        return entity;
+    }
+}))
 ```
 
 ### Block
