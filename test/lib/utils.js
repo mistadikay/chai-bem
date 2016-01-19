@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import {
     prepareClassName,
-    isClassName,
+    isValidEntity,
     getEntitiesFromBEMJSON
 } from '~/lib/utils';
 
@@ -12,7 +12,7 @@ describe('utils', function() {
         });
 
         it('isClassName', function() {
-            expect(isClassName).to.exist;
+            expect(isValidEntity).to.exist;
         });
 
         it('getEntitiesFromBEMJSON', function() {
@@ -46,13 +46,17 @@ describe('utils', function() {
         });
     });
 
-    describe('isClassName', function() {
+    describe('isValidEntity', function() {
         it('string', function() {
-            expect(isClassName('input')).to.be.true;
+            expect(isValidEntity('input')).to.be.true;
+        });
+
+        it('dom element', function() {
+            expect(isValidEntity(document.createElement('div'))).to.be.true;
         });
 
         it('number', function() {
-            expect(isClassName(1)).to.be.false;
+            expect(isValidEntity(1)).to.be.false;
         });
     });
 });
