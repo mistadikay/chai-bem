@@ -22,6 +22,10 @@ describe('block', function() {
                 it('with mod', function() {
                     expect(DOMElement('button_big')).to.not.be.a.validBlock;
                 });
+
+                it('no className', function() {
+                    expect(DOMElement('')).to.not.be.a.validBlock;
+                });
             });
         });
 
@@ -43,6 +47,10 @@ describe('block', function() {
 
                 it('with mod', function() {
                     expect(DOMElement('button_focused button')).to.not.be.a.block('input');
+                });
+
+                it('no className', function() {
+                    expect(DOMElement('')).to.not.be.a.block('input');
                 });
             });
         });
