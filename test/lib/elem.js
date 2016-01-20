@@ -18,6 +18,10 @@ describe('elem', function() {
                 it('simple', function() {
                     expect(DOMElement('input')).to.not.be.a.validElem;
                 });
+
+                it('no className', function() {
+                    expect(DOMElement('')).to.not.be.a.validElem;
+                });
             });
         });
 
@@ -48,6 +52,13 @@ describe('elem', function() {
 
                 it('within a mix', function() {
                     expect(DOMElement('input sidebar__input')).to.not.be.an.elem({
+                        block: 'content',
+                        elem: 'input'
+                    });
+                });
+
+                it('no className', function() {
+                    expect(DOMElement('')).to.not.be.an.elem({
                         block: 'content',
                         elem: 'input'
                     });

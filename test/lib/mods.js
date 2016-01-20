@@ -68,6 +68,13 @@ describe('mods', function() {
                         visible: true
                     });
                 });
+
+                it('no className', function() {
+                    expect(DOMElement('')).to.not.have.mods({
+                        size: 'big',
+                        visible: true
+                    });
+                });
             });
         });
     });
