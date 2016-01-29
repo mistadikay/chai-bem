@@ -163,7 +163,7 @@ expect('input__control random some__stuff').to.be.bem({
 
 ### `.not`
 
-`.not` is supported for all assertions excluding `bemjson`. Examples:
+`.not` is supported for all assertions. Examples:
 
 ```js
 expect('button_big').to.not.be.a.validBlock;
