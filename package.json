@@ -41,7 +41,7 @@
     "babel-loader": "6.2.x",
     "isparta-loader": "2.0.x",
 
-    "mocha": "2.3.x",
+    "mocha": "2.4.x",
     "chai-spies": "0.7.x",
     "coveralls": "2.11.x",
 
