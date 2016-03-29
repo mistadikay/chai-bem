@@ -30,7 +30,7 @@ describe('mods', function() {
                 });
 
                 it('multi mods', function() {
-                    expect(DOMElement('menu__item menu__item_size_big menu__item_visible')).to.have.mods({
+                    expect(DOMElement('menu__it menu__it_size_big menu__it_visible')).to.have.mods({
                         size: 'big',
                         visible: true
                     });
