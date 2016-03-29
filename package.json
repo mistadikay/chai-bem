@@ -23,7 +23,7 @@
   ],
   "dependencies": {
     "chai": "^3.2.0",
-    "bem-naming": "^0.5.1",
+    "bem-naming": "^1.0.0",
     "lodash.isplainobject": "4.0.x",
     "lodash.iselement": "4.0.x"
   },
